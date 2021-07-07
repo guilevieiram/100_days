@@ -10,7 +10,6 @@ Goals:
 3. Process coins
 4. Check transaction successful?
 5. Make Coffee.
-
 '''
 
 class CoffeeMachine():
@@ -49,18 +48,20 @@ class CoffeeMachine():
 
 
 	def is_drink_name_valid(self, drink_name: str) -> bool:
+		'''Checks if a drink name is valid'''
 		return isinstance(self.menu.find_drink(drink_name), MenuItem)
-
-
 
 
 def main() -> None:
 	coffee: CoffeeMachine = CoffeeMachine()
 
+	'''Machine state'''
 	on = True
 
+	'''Main loop'''
 	while on:
 
+		'''Clearing screen'''
 		os.system("clear")
 		print("-----------------------------------------------")
 
@@ -74,16 +75,16 @@ def main() -> None:
 			'''Checking resourses'''
 			if coffee.check_sufficient_resources(drink_name):
 
+				'''Processing the coins'''
 				coffee.process_coins(drink_name)
 
 				if coffee.check_transaction_successful():
+
+					'''Making the coffee!'''
 					coffee.make_coffee(drink_name)
 
 				else: print("Transaction unsuccessful")
-
 			else: print("Not suficcient resourses")
-
-
 		else:
 			print(f"{drink_name} is not a valid option ...")
 
@@ -91,11 +92,11 @@ def main() -> None:
 		power: str = input("Turn off machine (y/n)? ")	
 		if power.lower() == "y": on = False
 
-	
+	'''Printing report after the end of the day'''
 	os.system("clear")	
 	print("REPORT:")
 	coffee.print_report()
 
 
-if __name__=='__main__':
+if __name__ == '__main__':
 	main()
