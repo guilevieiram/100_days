@@ -31,10 +31,10 @@ class CoffeeMachine():
 		drink: MenuItem = self.menu.find_drink(drink_name)
 		return self.coffee_maker.is_resource_sufficient(drink)
 
-	def process_coins(self, drink_name: str) -> None:
-		'''Processess coins from a given order'''
-		drink: MenuItem = self.menu.find_drink(drink_name)
-		print(f"Drink cost: {drink.cost}")
+	def print_drink_cost(self, drink_name: str) -> None:
+		'''Finds the cost of a drink and print it'''
+		cost = self.menu.find_drink(drink_name).cost
+		print(f"Drink cost: {self.money_machine.CURRENCY}{cost}")
 
 	def check_transaction_successful(self) -> bool:
 		'''checks if a transaction was successful'''
@@ -75,8 +75,8 @@ def main() -> None:
 			'''Checking resourses'''
 			if coffee.check_sufficient_resources(drink_name):
 
-				'''Processing the coins'''
-				coffee.process_coins(drink_name)
+				'''Printing the cost'''
+				coffee.print_drink_cost(drink_name)
 
 				if coffee.check_transaction_successful():
 
