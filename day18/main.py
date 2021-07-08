@@ -51,20 +51,23 @@ class MyTurtle(t.Turtle):
 			self.circle(radius)
 			self.right(turning_angle)
 
-	def herst_painting(self, painting_path: str, step_size: int = 100, number_of_colors: int = 10):
+	def herst_painting(self, painting_path: str, step_size: int = 50, grid_lenght: int = 10,
+		dot_size: int = 20, number_of_colors: int = 10):
+
 		# self.colors: list = colorgram.extract(painting_path, number_of_colors) 
 		self.colors = [self.get_random_color() for _ in range(number_of_colors)]
 		
 		screen = t.Screen()
-		width = screen.window_width()//2 - self.TURTLE_SIZE
-		height = screen.window_height()//2 - self.TURTLE_SIZE
+		x_bottom_left = -(screen.window_width()//2 - self.TURTLE_SIZE)
+		y_bottom_left = -(screen.window_height()//2 - self.TURTLE_SIZE)
 
 		self.penup()
-		for x in range(-width, width, step_size):
-			for y in range(-height, height, step_size):
-				self.pencolor(r.choice(self.colors))
+		for i in range(grid_lenght):
+			for j in range(grid_lenght):
+				x = x_bottom_left + i * step_size
+				y = y_bottom_left + j * step_size
 				self.goto(x,y)
-				self.dot()
+				self.dot(dot_size, r.choice(self.colors))
 
 	def show(self):
 		screen = t.Screen()
@@ -78,11 +81,10 @@ class MyTurtle(t.Turtle):
 
 
 def main() -> None:
-
 	t.colormode(255)
 
 	joana = MyTurtle(turtle_color='blue', speed=0, pensize=10)
-	joana.herst_painting('spot_painting.jpg', number_of_colors=30, step_size=50)
+	joana.herst_painting('spot_painting.jpg')
 	joana.show()
 
 if __name__=='__main__':
