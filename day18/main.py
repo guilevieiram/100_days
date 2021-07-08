@@ -83,7 +83,13 @@ class MyTurtle(t.Turtle):
 def main() -> None:
 	t.colormode(255)
 
-	joana = MyTurtle(turtle_color='blue', speed=0, pensize=10)
+	joana = MyTurtle(turtle_color='black', pencolor='green', speed=0, pensize=1)
+	# joana.draw_square()
+	# joana.draw_dashed_line()
+	# joana.draw_polygon(7)
+	# joana.draw_polygons(10)
+	# joana.draw_random_walk()
+	# joana.draw_spyrograph()
 	joana.herst_painting('spot_painting.jpg')
 	joana.show()
 
