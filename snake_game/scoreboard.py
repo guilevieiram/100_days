@@ -8,9 +8,9 @@ Y_POS = SCREEN_HEIGHT//2 - 30
 
 FONT_COLOR = 'white'
 ALIGN = 'center'
-FONT = 'arial'
+FONT = 'courier'
 FONT_SIZE = 15
-FONT_TYPE = 'bold'
+FONT_TYPE = 'normal'
 
 GAME_OVER_FONT_SIZE = 50
 GAME_OVER_FONT_COLOR = 'red'

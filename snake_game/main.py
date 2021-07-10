@@ -10,7 +10,7 @@ SCREEN_WIDTH = 600
 SCREEN_COLOR = 'black'
 GAME_NAME = 'Snake Game'
 
-FRAME_RATE = 10
+FRAME_RATE = 15
 UPDATE_TIME = 1/FRAME_RATE
 
 UP = 90
@@ -28,6 +28,7 @@ class SnakeGame():
 		self.screen.title(GAME_NAME)
 		self.screen.tracer(0)
 		self.screen.listen()
+		self.set_actions()
 
 		'''Setup Snake'''
 		self.snake: Snake = Snake()
@@ -58,16 +59,6 @@ class SnakeGame():
 				self.food.clear()
 				self.food.set()
 
-			'''Quit game action'''
-			self.screen.onkey(key='space', fun=lambda : self.end_game())
-
-			'''Moving actions'''
-			self.screen.onkey(key='Up', fun=lambda : self.snake.turn(UP))
-			self.screen.onkey(key='Down', fun=lambda : self.snake.turn(DOWN))
-			self.screen.onkey(key='Left', fun=lambda : self.snake.turn(LEFT))
-			self.screen.onkey(key='Right', fun=lambda : self.snake.turn(RIGHT))
-			self.screen.onkey(key='p', fun=lambda : self.snake.add_segment()) #dev purposes only
-
 			'''Moving'''
 			self.snake.move()
 			self.screen.update()
@@ -78,17 +69,23 @@ class SnakeGame():
 		self.game_on = False
 		self.screen.exitonclick()
 
+	def set_actions(self) -> None:
+		'''Moving actions'''
+		self.screen.onkey(key='Up', fun=lambda : self.snake.turn(UP))
+		self.screen.onkey(key='Down', fun=lambda : self.snake.turn(DOWN))
+		self.screen.onkey(key='Left', fun=lambda : self.snake.turn(LEFT))
+		self.screen.onkey(key='Right', fun=lambda : self.snake.turn(RIGHT))
+		self.screen.onkey(key='p', fun=lambda : self.snake.add_segment()) #dev purposes only
+
+		'''Quit game action'''
+		self.screen.onkey(key='space', fun=lambda : self.end_game())	
+
+
 def main() -> None:
-	sg: SnakeGame = SnakeGame()
-	sg.run()
+	snake_game: SnakeGame = SnakeGame()
 	try:
-		os.system("cls")
-	except:
-		pass
-	try:
-		os.system("clear")
-	except:
-		pass
+		snake_game.run()
+	except: pass
 
 if __name__ == "__main__":
 	main()
