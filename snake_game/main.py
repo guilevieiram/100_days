@@ -1,5 +1,6 @@
 import turtle as t
 import time
+import os
 from snake import Snake
 from food import Food
 from scoreboard import Scoreboard
@@ -80,6 +81,14 @@ class SnakeGame():
 def main() -> None:
 	sg: SnakeGame = SnakeGame()
 	sg.run()
+	try:
+		os.system("cls")
+	except:
+		pass
+	try:
+		os.system("clear")
+	except:
+		pass
 
 if __name__ == "__main__":
 	main()
