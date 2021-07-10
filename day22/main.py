@@ -4,18 +4,19 @@ How to make the pong game:
 2. make the pads OKEY
 3. make the ball OKEY
 4. implement the player class from pads OKEY
-5. implement bouncing action (from wall and from paddle)
-6. implement out of bounds 
+5. implement bouncing action (from wall and from paddle) OKEY
+6. implement out of bounds OKEY
 7. make scoreboard
 '''
 
 import turtle as t
 import random as r
+import time
 
 '''Screen constants'''
 SCREEN_WIDTH = 600
 SCREEN_HEIGHT = 400
-X_MARGIN = 20
+X_MARGIN = 60
 Y_MARGIN = 20
 X_MAX = (SCREEN_WIDTH - X_MARGIN)//2 
 Y_MAX = (SCREEN_HEIGHT - Y_MARGIN)//2 
@@ -25,30 +26,34 @@ ELEMENTS_COLOR = 'white'
 ELEMENTS_WIDTH = 5
 DASHES_LENGHT = 10
 
+FPS = 40
+UPDATE_TIME = 1/FPS
+
 '''Game constants'''
 GAME_NAME = 'Guile Pong'
 
 '''Pad constants'''
 PAD_HEIGHT = 50
 PAD_WIDTH = 10
-RIGHT_PAD_POS = ((SCREEN_HEIGHT-X_MARGIN)/2,0)
-LEFT_PAD_POS = (-(SCREEN_HEIGHT-X_MARGIN)/2,0)
+RIGHT_PAD_POS = ((SCREEN_WIDTH-X_MARGIN)//2,0)
+LEFT_PAD_POS = (-(SCREEN_WIDTH-X_MARGIN)//2,0)
 
 PAD_COLOR = 'white'
-PAD_SPEED = 6
+PAD_SPEED = 0
 PAD_SHAPE = 'square'
 
-PAD_STEP = 5
+PAD_STEP = 10
 
 '''Ball constants'''
 BALL_SIZE = 10
 BALL_SHAPE = 'square'
 BALL_COLOR = 'white'
-BALL_SPEED = 1
-MAX_DISTANCE = 10 * SCREEN_WIDTH
+BALL_SPEED = 0
+BALL_STEP = 5
 
 '''Turtle constants'''
 STANDARD_SIZE = 20
+
 
 class Player():
 	def __init__(self, position: tuple) -> None:
@@ -64,8 +69,8 @@ class Player():
 	def increase_score(self) -> None:
 		self.score += 1
 
-	def colision(self, ball_position: tuple) -> bool:
-		return self.pad.colision(ball_position)
+	def position(self) -> tuple:
+		return self.pad.position()
 
 class Ball(t.Turtle):
 
@@ -79,15 +84,44 @@ class Ball(t.Turtle):
 		self.penup()
 		self.home()
 
-	def start_moving(self) -> None:
-		theta: int = r.random() * 360
-		self.setheading(theta)
-		self.forward(MAX_DISTANCE)
+	def set_direction(self) -> None:
+		direction: int = r.random() * 360
+		# direction = 0
+		self.setheading(direction)
 		
 
 	def bounce_on_pad(self) -> None:
-		direction: tuple = self.heading()
-		print(direction)
+		direction: float = self.heading()
+
+		if direction > 90 and direction < 270 : # ball heading right
+			direction =  r.random() * 180 - 90 
+		else: # ball heading left
+			direction = r.random() * 180 + 90
+
+		self.setheading(direction)
+		self.move(step=PAD_WIDTH)
+
+	def bounce_on_wall(self) -> None:
+		direction: float = self.heading()
+		direction = - direction
+		self.setheading(direction)
+		self.move()
+
+	def move(self, step: int = BALL_STEP) -> None:
+		self.forward(step)
+
+	def colision_with_wall(self) -> bool:
+		x_ball, y_ball = self.position()
+		return abs(y_ball) >= Y_MAX 
+
+	def colision_with_pad(self, pad_position: tuple) -> bool:
+		x_ball, y_ball = self.position()
+		x_pad, y_pad = pad_position
+		return abs(x_ball-x_pad) < PAD_WIDTH/2 and abs(y_ball-y_pad) < PAD_HEIGHT/2
+
+	def out_of_bounds(self) -> bool:
+		x_ball, y_ball = self.position()
+		return abs(x_ball) >= X_MAX
 
 class Pad(t.Turtle):
 	
@@ -103,15 +137,12 @@ class Pad(t.Turtle):
 		self.goto(position)
 
 	def up(self) -> None:
-		self.forward(PAD_STEP)
+		if self.ycor() < +(Y_MAX - PAD_HEIGHT/2):
+			self.forward(PAD_STEP)
 
 	def down(self) -> None:
-		self.backward(PAD_STEP)
-
-	def colision(self, ball_position: tuple) -> bool:
-		x_ball, y_ball = ball_position
-		x_pad, y_pad = self.position()
-		return abs(x_ball-x_pad) < PAD_WIDTH or abs(y_ball-y_pad) < PAD_HEIGHT
+		if self.ycor() > -(Y_MAX - PAD_HEIGHT/2):
+			self.backward(PAD_STEP)
 
 class Screen():
 
@@ -128,7 +159,7 @@ class Screen():
 		self.screen.bye()
 
 	def action(self, key: str, function) -> None:
-		self.screen.onkeypress(key=key, fun=function)
+		self.screen.onkey(key=key, fun=function)
 
 	def enable_movement(self) -> None:
 		self.screen.tracer(1)
@@ -175,15 +206,25 @@ class Pong:
 
 		self.screen.enable_movement()
 
-		self.ball.start_moving()
+		self.ball.set_direction()
 
 		while self.on:
 
-			if self.player_1.colision(self.ball.position()) or self.player_2.colision(self.ball.position()):
+			if (self.ball.colision_with_pad(self.player_1.position()) or
+			 self.ball.colision_with_pad(self.player_2.position()) ):
 				self.ball.bounce_on_pad()
-				print('colision')
 
+			if self.ball.colision_with_wall():
+				self.ball.bounce_on_wall()
+
+			if self.ball.out_of_bounds():
+				self.game_over()
+
+
+			self.ball.move()
 			self.screen.update()
+			time.sleep(UPDATE_TIME)
+
 
 	def game_over(self) -> None:
 		self.screen.update()
