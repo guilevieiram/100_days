@@ -25,6 +25,9 @@ class Segment(t.Turtle):
 		self.speed(0)
 		self.color(SNAKE_COLOR)
 
+	def hide(self) -> None:
+		self.hideturtle()
+
 class Snake():
 
 	def __init__(self) -> None:
@@ -57,3 +60,11 @@ class Snake():
 
 	def colision_with_itself(self) -> bool:
 		return True in [self.head.distance(segment) < COLISION_DISTANCE for segment in self.snake[1:]]
+
+	def delete_snake(self) -> None:
+		for segment in self.snake:
+			segment.hide()
+
+	def reset(self) -> None:
+		self.delete_snake()
+		self.__init__()

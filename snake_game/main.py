@@ -13,6 +13,8 @@ GAME_NAME = 'Snake Game'
 FRAME_RATE = 15
 UPDATE_TIME = 1/FRAME_RATE
 
+TIME_TO_START = 0.5
+
 UP = 90
 DOWN = -90
 LEFT = 180
@@ -45,11 +47,13 @@ class SnakeGame():
 		self.points: int = 0
 
 	def run(self) -> None:
+
+		time.sleep(TIME_TO_START)
 		while self.game_on:
 
 			'''Checking collisions with wall and tail'''
 			if self.snake.colision_with_wall() or self.snake.colision_with_itself():
-				self.end_game()
+				self.reset()
 
 			'''Food dynamic'''
 			if self.food.is_eaten(self.snake.head):
@@ -63,6 +67,12 @@ class SnakeGame():
 			self.snake.move()
 			self.screen.update()
 			time.sleep(UPDATE_TIME)
+
+	def reset(self) -> None:
+		self.snake.reset()
+		self.scoreboard.reset()
+		self.screen.update()
+		time.sleep(TIME_TO_START)
 
 	def end_game(self) -> None:
 		self.scoreboard.game_over()
@@ -85,7 +95,8 @@ def main() -> None:
 	snake_game: SnakeGame = SnakeGame()
 	try:
 		snake_game.run()
-	except: pass
+	except: 
+		print('game over')
 
 if __name__ == "__main__":
 	main()
