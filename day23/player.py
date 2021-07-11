@@ -6,13 +6,13 @@ CONSTANTS
 from screen import X_MAX, Y_MAX
 
 # Player shape
-PLAYER_COLOR = 'black'
+PLAYER_COLOR = 'green'
 PLAYER_SHAPE = 'turtle'
 PLAYER_WIDTH = 20 
 PLAYER_HEIGHT = 20
 
 # Player mechanics
-STEP = 10
+STEP = 15
 SPEED = 0
 
 # Turtle defaults
@@ -44,3 +44,5 @@ class Player(t.Turtle):
 	def reset(self) -> None:
 		self.goto(x=0, y=-Y_MAX)
 
+	def crossed_road(self) -> bool:
+		return self.ycor() >= Y_MAX
