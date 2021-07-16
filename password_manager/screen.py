@@ -1,85 +1,28 @@
 from abc import ABC, abstractmethod
 from tkinter import *
+from tkinter import messagebox
+from constants import *
 
 
-"""CONSTANTS"""
-# Text
-FONT = "Arial"
-SIZE = 12
-COLOR = "black"
-
-# Website text
-WEB_TEXT = "Website: "
-WEB_ROW = 2
-WEB_COLUMN = 0 
-
-# Email text
-EMAIL_TEXT = "Email/Username: "
-EMAIL_ROW = 3
-EMAIL_COLUMN = 0
-
-# Password text
-PASS_TEXT = "Password: "
-PASS_ROW = 4
-PASS_COLUMN = 0
-
-# Website entry
-WEB_ENTRY_COLSPAN = 2
-WEB_ENTRY_ROW = WEB_ROW
-WEB_ENTRY_COLUMN = 1
-WEB_ENTRY_WIDTH = 60
-
-# Email entry
-EMAIL_ENTRY_COLSPAN = 2
-EMAIL_ENTRY_ROW = EMAIL_ROW
-EMAIL_ENTRY_COLUMN = 1
-EMAIL_ENTRY_WIDTH = WEB_ENTRY_WIDTH
-
-# Password entry
-PASS_ENTRY_COLSPAN = 1
-PASS_ENTRY_ROW = PASS_ROW
-PASS_ENTRY_COLUMN = 1
-PASS_ENTRY_WIDTH = 25
-
-# Add password button
-ADDPASS_TEXT = "Add"
-ADDPASS_ROW = 5
-ADDPASS_COLUMN = 1
-ADDPASS_COLSPAN = 2
-ADDPASS_WIDTH = WEB_ENTRY_WIDTH
-
-# Generate random password button
-RANDPASS_TEXT = "Generate password"
-RANDPASS_ROW = PASS_ROW
-RANDPASS_COLUMN = 2
-RANDPASS_COLSPAN = 1
-RANDPASS_WIDTH = PASS_ENTRY_WIDTH
-
-# Window
-TITLE = "Password Manager"
-PADX = 50
-PADY = 30
-
-# App Title
-TITLE_FONT = FONT
-TITLE_SIZE = 20
-TITLE_ROW = 0
-TITLE_COLUM = 0
-TITLE_COLOR = "red"
-TITLE_COLSPAN = 3
-
-
-# Canvas
-CANVAS_ROW = 1
-CANVAS_COLUMN = 0
-CANVAS_WIDTH = 100
-CANVAS_HEIGHT = 100
-CANVAS_COLSPAN = 3
-
-# Image
-IMAGE_PATH = "./cat.png"
-IMAGE_X = CANVAS_WIDTH//2
-IMAGE_Y = CANVAS_HEIGHT//2
+class Screen(ABC):
+	@abstractmethod
+	def get_username(self) -> str:
+		pass
+	@abstractmethod
+	def get_password(self) -> str:
+		pass
+	@abstractmethod
+	def get_website(self) -> str:
+		pass
+	@abstractmethod
+	def set_password(self, password: str) -> None:
+		pass
+	@abstractmethod
+	def clear_entries(self) -> None:
+		pass
+	@abstractmethod
+	def make(self) -> None:
+		pass
 
 
 class TkWidgetManager:
@@ -129,30 +72,25 @@ class TkWidgetManager:
 		)
 		return image
 
-class Screen(ABC):
-	@abstractmethod
-	def get_username(self) -> str:
-		pass
-	@abstractmethod
-	def get_password(self) -> str:
-		pass
-	@abstractmethod
-	def get_website(self) -> str:
-		pass
-	@abstractmethod
-	def set_password(self, password: str) -> None:
-		pass
-	@abstractmethod
-	def clear_entries(self) -> None:
-		pass
-	@abstractmethod
-	def make(self) -> None:
-		pass
+
+class TkPopUpManager:
+	def ask_user(self, title: str, message: str) -> bool:
+		return messagebox.askokcancel(
+			title=title,
+			message=message
+			)
+	def warn_user(self, title: str, message: str) -> None:
+		return messagebox.showwarning(
+			title=title,
+			message=message
+			)
 
 class TkScreen(Screen):
 
 	def __init__(self, **functions) -> None:
 		self.__dict__.update(functions)
+
+		self.pop_up_man = TkPopUpManager()
 
 		widget_manager = TkWidgetManager()
 
@@ -251,6 +189,9 @@ class TkScreen(Screen):
 			func=self.generate_random_password_function
 			)
 
+		# Focusing
+		self.website_entry.focus()
+
 	def get_username(self) -> str:
 		return self.email_entry.get()
 
@@ -266,8 +207,39 @@ class TkScreen(Screen):
 
 	def clear_entries(self) -> None:
 		self.website_entry.delete(0,END)
-		self.email_entry.delete(0,END)
 		self.password_entry.delete(0,END)
+
+	def field_empty(self) -> bool:
+		fields = []
+		if not self.get_username():
+			fields.append('username')
+		if not self.get_password():
+			fields.append('password')
+		if not self.get_website():
+			fields.append('website')
+
+		if fields:
+			title = "Empty field not allowed"
+			message = f"Entries {','.join(fields)} cannot be empty.\nPlease fill them."
+
+			self.pop_up_man.warn_user(
+			title=title,
+			message=message
+			)
+
+		return bool(fields)
+
+	def confirm_user_entry(self) -> bool:
+		title = "Save details"
+		message = f'''This are the details entered: 
+	Website: {self.get_website()}
+	Usename: {self.get_username()}
+	Password: {self.get_password()}\n\nDo you want to save?
+		'''		
+		return self.pop_up_man.ask_user(
+			title=title,
+			message=message
+			)
 
 	def make(self) -> None:
 		self.window.mainloop()

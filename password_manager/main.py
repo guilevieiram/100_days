@@ -27,17 +27,19 @@ class PasswordManager():
 		self.screen.make()
 
 	def add_password_button_function(self) -> None:
-		username = self.screen.get_username()
-		password = self.screen.get_password()
-		website = self.screen.get_website()
+		
+		if not self.screen.field_empty() and self.screen.confirm_user_entry():
 
-		self.data_manager.add_password(
-			website,
-			username,
-			password
-			)
+			username = self.screen.get_username()
+			password = self.screen.get_password()
+			website = self.screen.get_website()
 
-		self.screen.clear_entries()
+			self.data_manager.add_password(
+				website,
+				username,
+				password
+				)
+			self.screen.clear_entries()
 
 	def generate_random_password_function(self) -> None:
 		password = self.password_generator.generate()
