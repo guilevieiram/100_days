@@ -5,12 +5,9 @@ from datetime import timedelta
 
 
 # Pomodoro
-# STUDY_TIME = 25 * 60
-STUDY_TIME = 5
-# SMALL_BREAK_TIME = 5 * 60
-SMALL_BREAK_TIME = 2
-# BIG_BREAK_TIME = 30 * 60
-BIG_BREAK_TIME = 10
+STUDY_TIME = 25 * 60
+SMALL_BREAK_TIME = 5 * 60
+BIG_BREAK_TIME = 30 * 60
 STUDY_SESSIONS = 4
 
 # COLORS
@@ -53,7 +50,8 @@ RESET_BUTTON_COLOR = PINK
 # Main Text
 INITIAL_TEXT = 'Pomodoro'
 STUDY_TEXT = 'Study!'
-BREAK_TEXT = 'Break time!'
+SMALL_BREAK_TEXT = 'Break time!'
+BIG_BREAK_TEXT = 'Rest!'
 
 MAIN_TEXT_SIZE =  30
 MAIN_TEXT_ROW = 0
@@ -82,6 +80,8 @@ class Pomodoro():
 	def __init__(self):
 
 		self.study_session: int = 1
+
+		self.study: bool
 
 		self.window: Tk = self.make_window(
 			title=TITLE,
@@ -146,9 +146,11 @@ class Pomodoro():
 			fg_color=TICK_TEXT_FG_COLOR
 		)
 
+	# Main function
 	def run(self):
 		self.window.mainloop()
 	
+	# Making widgets
 	def make_window(self, title: str, padx: int, pady: int, color: str) -> Tk:
 		window: Tk = Tk()
 		window.title(title)
@@ -199,6 +201,49 @@ class Pomodoro():
 		)
 		return timer
 
+	# Timer count_down functions
+	def do_study_session(self, start_time: int) -> None:
+		if self.study:
+			self.update_main_text(text=STUDY_TEXT)
+			self.update_timer(time=start_time)
+			if start_time >= 0: 
+				self.window.after(
+					1000,
+					self.do_study_session,
+					start_time - 1,
+				)
+			elif self.study_session < STUDY_SESSIONS : 
+				self.study_session += 1
+				self.do_small_break()
+			else:
+				self.study_session = 1
+				self.do_big_break()
+
+	def do_break(self, start_time: int):
+		if self.study:
+			self.update_timer(time=start_time)
+			if start_time >= 0: 
+				self.window.after(
+					1000,
+					self.do_break,
+					start_time - 1,
+				)	
+			else:
+				self.do_study_session(start_time=STUDY_TIME)
+
+	# Defining break functions
+	def do_small_break(self):
+		self.update_main_text(text=SMALL_BREAK_TEXT)
+		self.increase_tick()
+		self.do_break(start_time=SMALL_BREAK_TIME)
+
+	def do_big_break(self):
+		self.update_main_text(text=BIG_BREAK_TEXT)
+		self.increase_tick()
+		self.do_break(start_time=BIG_BREAK_TIME)
+		self.reset_tick()
+
+	# Updating screen methods
 	def increase_tick(self) -> None:
 		self.tick_text["text"] += TICK_TEXT
 	
@@ -211,53 +256,26 @@ class Pomodoro():
 			text=seconds_to_time(time)
 			)
 
-	def do_study_session(self, start_time: int) -> None:
-		self.update_timer(time=start_time)
-		if start_time >= 0: 
-			self.window.after(
-				1000,
-				self.do_study_session,
-				start_time - 1,
-			)
-		elif self.study_session < STUDY_SESSIONS : 
-			self.study_session += 1
-			self.do_small_break()
-		else:
-			self.study_session = 1
-			self.do_big_break()
-			
-	def do_small_break(self):
-		self.increase_tick()
-		self.do_break(start_time=SMALL_BREAK_TIME)
-
-	def do_big_break(self):
-		self.increase_tick()
-		self.do_break(start_time=BIG_BREAK_TIME)
-		self.reset_tick()
-
-	def do_break(self, start_time: int):
-		self.update_timer(time=start_time)
-		if start_time >= 0: 
-			self.window.after(
-				1000,
-				self.do_break,
-				start_time - 1,
-			)
-		else:
-			self.do_study_session(start_time=STUDY_TIME)
-
-	def reset_clock(self):
+	def reset_timer(self):
 		self.canvas.itemconfigure(
 			self.timer,
 			text = seconds_to_time(seconds=0)
 			)
 
+	def update_main_text(self, text: str) -> None:
+		self.main_text["text"] = text
+
+	# Button actions
 	def start_button_function(self):
+		self.study = True
 		self.do_study_session(start_time=STUDY_TIME)
 	
-	# LACKING IMPLEMENTATION (ONLY)
 	def reset_button_function(self):
-		pass 
+		self.study = False
+		self.reset_timer()
+		self.reset_tick()
+		self.update_main_text(text=INITIAL_TEXT)
+
 
 def main() -> None:
     pomodoro: Pomodoro = Pomodoro()
