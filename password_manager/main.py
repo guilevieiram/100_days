@@ -1,10 +1,10 @@
-from data_manager import DataManager, LocalDataManager
+from data_manager import DataManager, LocalDataManager, JSONLocalDataManager
 from data_manager import Generator, PasswordGenerator
 from screen import Screen, TkScreen
 
 """CONSTANTS"""
 # Data
-STORAGE_FILE = "data.txt"
+STORAGE_FILE = "data.json"
 
 class PasswordManager():
 
@@ -16,10 +16,11 @@ class PasswordManager():
 
 		self.screen: Screen = TkScreen(
 			add_password_button_function=self.add_password_button_function,
-			generate_random_password_function=self.generate_random_password_function
+			generate_random_password_function=self.generate_random_password_function,
+			retrieve_password_function=self.retrieve_password_function	
 			)
 
-		self.data_manager: DataManager = LocalDataManager(
+		self.data_manager: DataManager = JSONLocalDataManager(
 			storage_file=STORAGE_FILE
 			)
 
@@ -46,6 +47,11 @@ class PasswordManager():
 		self.screen.set_password(
 			password=password
 			)
+
+	def retrieve_password_function(self) -> None:
+		website = self.screen.get_website()
+		credentials = self.data_manager.retrieve_password(website=website)
+		self.screen.show_password(website=website, credentials=credentials)
 
 def main() -> None:
 	pass_man = PasswordManager()

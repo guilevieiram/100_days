@@ -84,7 +84,11 @@ class TkPopUpManager:
 			title=title,
 			message=message
 			)
-
+	def show_user(self, title: str, message: str) -> None:
+		return messagebox.showinfo(
+			title=title,
+			message=message
+			)
 class TkScreen(Screen):
 
 	def __init__(self, **functions) -> None:
@@ -188,6 +192,14 @@ class TkScreen(Screen):
 			width=RANDPASS_WIDTH,
 			func=self.generate_random_password_function
 			)
+		self.retrieve_password = widget_manager.make_button(
+			text=RETPASS_TEXT,
+			row=RETPASS_ROW,
+			column=RETPASS_COLUMN,
+			columnspan=RETPASS_COLSPAN,
+			width=RETPASS_WIDTH,
+			func=self.retrieve_password_function
+			)
 
 		# Focusing
 		self.website_entry.focus()
@@ -205,9 +217,18 @@ class TkScreen(Screen):
 		self.password_entry.delete(0,END)
 		self.password_entry.insert(0, password)
 
+
 	def clear_entries(self) -> None:
 		self.website_entry.delete(0,END)
 		self.password_entry.delete(0,END)
+
+	def show_password(self, website: str, credentials: dict):
+		title = "Here is the desired password"
+		message = f"Website: {website}\n\tUsername: {credentials['username']}\n\tPassword: {credentials['password']}"
+		self.pop_up_man.show_user(
+			title=title,
+			message=message
+			)
 
 	def field_empty(self) -> bool:
 		fields = []
