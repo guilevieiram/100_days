@@ -1,0 +1,292 @@
+next_48h
+
+[
+    {
+        "hour": 1,
+        "temperature": 19.28,
+        "feels like": 18.31,
+        "weather": "Clear"
+    },
+    {
+        "hour": 2,
+        "temperature": 18.96,
+        "feels like": 18.03,
+        "weather": "Clear"
+    },
+    {
+        "hour": 3,
+        "temperature": 19.8,
+        "feels like": 18.88,
+        "weather": "Clear"
+    },
+    {
+        "hour": 4,
+        "temperature": 20.9,
+        "feels like": 19.99,
+        "weather": "Clear"
+    },
+    {
+        "hour": 5,
+        "temperature": 21.92,
+        "feels like": 21.0,
+        "weather": "Clear"
+    },
+    {
+        "hour": 6,
+        "temperature": 22.45,
+        "feels like": 21.53,
+        "weather": "Clear"
+    },
+    {
+        "hour": 7,
+        "temperature": 21.32,
+        "feels like": 20.4,
+        "weather": "Clear"
+    },
+    {
+        "hour": 8,
+        "temperature": 17.14,
+        "feels like": 16.16,
+        "weather": "Clear"
+    },
+    {
+        "hour": 9,
+        "temperature": 14.86,
+        "feels like": 14.07,
+        "weather": "Clear"
+    },
+    {
+        "hour": 10,
+        "temperature": 13.47,
+        "feels like": 12.75,
+        "weather": "Clear"
+    },
+    {
+        "hour": 11,
+        "temperature": 12.47,
+        "feels like": 11.76,
+        "weather": "Clear"
+    },
+    {
+        "hour": 12,
+        "temperature": 11.48,
+        "feels like": 10.75,
+        "weather": "Clear"
+    },
+    {
+        "hour": 13,
+        "temperature": 10.73,
+        "feels like": 10.0,
+        "weather": "Clear"
+    },
+    {
+        "hour": 14,
+        "temperature": 10.17,
+        "feels like": 9.44,
+        "weather": "Clear"
+    },
+    {
+        "hour": 15,
+        "temperature": 9.78,
+        "feels like": 8.6,
+        "weather": "Clear"
+    },
+    {
+        "hour": 16,
+        "temperature": 9.65,
+        "feels like": 8.57,
+        "weather": "Clear"
+    },
+    {
+        "hour": 17,
+        "temperature": 9.6,
+        "feels like": 8.48,
+        "weather": "Clouds"
+    },
+    {
+        "hour": 18,
+        "temperature": 9.72,
+        "feels like": 8.69,
+        "weather": "Clouds"
+    },
+    {
+        "hour": 19,
+        "temperature": 9.82,
+        "feels like": 8.81,
+        "weather": "Clouds"
+    },
+    {
+        "hour": 20,
+        "temperature": 9.92,
+        "feels like": 8.97,
+        "weather": "Clouds"
+    },
+    {
+        "hour": 21,
+        "temperature": 10.43,
+        "feels like": 9.77,
+        "weather": "Clouds"
+    },
+    {
+        "hour": 22,
+        "temperature": 12.81,
+        "feels like": 12.05,
+        "weather": "Clouds"
+    },
+    {
+        "hour": 23,
+        "temperature": 15.11,
+        "feels like": 14.32,
+        "weather": "Clouds"
+    },
+    {
+        "hour": 24,
+        "temperature": 17.43,
+        "feels like": 16.61,
+        "weather": "Clear"
+    },
+    {
+        "hour": 25,
+        "temperature": 19.46,
+        "feels like": 18.64,
+        "weather": "Clear"
+    },
+    {
+        "hour": 26,
+        "temperature": 21.11,
+        "feels like": 20.29,
+        "weather": "Clear"
+    },
+    {
+        "hour": 27,
+        "temperature": 22.07,
+        "feels like": 21.22,
+        "weather": "Clear"
+    },
+    {
+        "hour": 28,
+        "temperature": 22.52,
+        "feels like": 21.66,
+        "weather": "Clear"
+    },
+    {
+        "hour": 29,
+        "temperature": 22.34,
+        "feels like": 21.47,
+        "weather": "Clear"
+    },
+    {
+        "hour": 30,
+        "temperature": 21.56,
+        "feels like": 20.63,
+        "weather": "Clear"
+    },
+    {
+        "hour": 31,
+        "temperature": 19.86,
+        "feels like": 18.89,
+        "weather": "Clear"
+    },
+    {
+        "hour": 32,
+        "temperature": 16.67,
+        "feels like": 15.59,
+        "weather": "Clear"
+    },
+    {
+        "hour": 33,
+        "temperature": 14.83,
+        "feels like": 13.7,
+        "weather": "Clear"
+    },
+    {
+        "hour": 34,
+        "temperature": 13.46,
+        "feels like": 12.27,
+        "weather": "Clear"
+    },
+    {
+        "hour": 35,
+        "temperature": 12.3,
+        "feels like": 11.13,
+        "weather": "Clear"
+    },
+    {
+        "hour": 36,
+        "temperature": 11.22,
+        "feels like": 10.07,
+        "weather": "Clear"
+    },
+    {
+        "hour": 37,
+        "temperature": 10.46,
+        "feels like": 9.36,
+        "weather": "Clear"
+    },
+    {
+        "hour": 38,
+        "temperature": 9.98,
+        "feels like": 8.95,
+        "weather": "Clear"
+    },
+    {
+        "hour": 39,
+        "temperature": 9.51,
+        "feels like": 8.46,
+        "weather": "Clear"
+    },
+    {
+        "hour": 40,
+        "temperature": 9.03,
+        "feels like": 7.78,
+        "weather": "Clouds"
+    },
+    {
+        "hour": 41,
+        "temperature": 8.55,
+        "feels like": 7.22,
+        "weather": "Clouds"
+    },
+    {
+        "hour": 42,
+        "temperature": 8.2,
+        "feels like": 6.75,
+        "weather": "Clouds"
+    },
+    {
+        "hour": 43,
+        "temperature": 7.94,
+        "feels like": 6.55,
+        "weather": "Clouds"
+    },
+    {
+        "hour": 44,
+        "temperature": 7.66,
+        "feels like": 6.46,
+        "weather": "Clouds"
+    },
+    {
+        "hour": 45,
+        "temperature": 8.2,
+        "feels like": 7.13,
+        "weather": "Clouds"
+    },
+    {
+        "hour": 46,
+        "temperature": 11.44,
+        "feels like": 10.47,
+        "weather": "Clouds"
+    },
+    {
+        "hour": 47,
+        "temperature": 14.36,
+        "feels like": 13.37,
+        "weather": "Clouds"
+    },
+    {
+        "hour": 48,
+        "temperature": 16.97,
+        "feels like": 15.98,
+        "weather": "Clear"
+    }
+]
