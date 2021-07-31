@@ -1,0 +1,202 @@
+get_best_news
+
+[
+    {
+        "headline": "Amazon handed record $888 million fine from EU data privacy watchdog",
+        "description": "Amazon has been handed its largest ever privacy fine in the EU by Luxembourg's data watchdog. The CNPD fined the company \u20ac746 million ($888 million) on July 16th for violating the bloc's strict data privacy laws, known as GDPR. Amazon disclosed the ruling in \u2026",
+        "source": "Engadget",
+        "link": "https://www.engadget.com/amazon-fine-eu-data-privacy-130443268.html"
+    },
+    {
+        "headline": "This week's best deals: $150 off Apple's MacBook Air M1 and more",
+        "description": "As July comes to a close, a number of laptops, earbuds, games and more have gone on sale across the web. Students planning their back-to-school shopping list have a few ways to save on Apple products \u2014 the latest MacBook Air M1 is $150 off at Amazon (that's b\u2026",
+        "source": "Engadget",
+        "link": "https://www.engadget.com/weekly-tech-deals-apple-macbook-air-m1-ipad-air-nintendo-switch-mario-kart-live-home-circuit-153058942.html"
+    },
+    {
+        "headline": "'Doctor Who' needs to evolve to survive",
+        "description": "The BBC has announced that Chris Chibnall (pictured, center), Doctor Who\u2019s executive producer, and its star, Jodie Whittaker (pictured, right), will leave the series in 2022\r\n. A trio of specials through next year would herald the pair\u2019s departure from the lo\u2026",
+        "source": "Engadget",
+        "link": "https://www.engadget.com/doctor-who-chibnall-whittaker-departure-reformat-series-113012792.html"
+    }
+]get_best_news
+
+[
+    {
+        "headline": "Amazon handed record $888 million fine from EU data privacy watchdog",
+        "description": "Amazon has been handed its largest ever privacy fine in the EU by Luxembourg's data watchdog. The CNPD fined the company \u20ac746 million ($888 million) on July 16th for violating the bloc's strict data privacy laws, known as GDPR. Amazon disclosed the ruling in \u2026",
+        "source": "Engadget",
+        "link": "https://www.engadget.com/amazon-fine-eu-data-privacy-130443268.html"
+    },
+    {
+        "headline": "This week's best deals: $150 off Apple's MacBook Air M1 and more",
+        "description": "As July comes to a close, a number of laptops, earbuds, games and more have gone on sale across the web. Students planning their back-to-school shopping list have a few ways to save on Apple products \u2014 the latest MacBook Air M1 is $150 off at Amazon (that's b\u2026",
+        "source": "Engadget",
+        "link": "https://www.engadget.com/weekly-tech-deals-apple-macbook-air-m1-ipad-air-nintendo-switch-mario-kart-live-home-circuit-153058942.html"
+    },
+    {
+        "headline": "'Doctor Who' needs to evolve to survive",
+        "description": "The BBC has announced that Chris Chibnall (pictured, center), Doctor Who\u2019s executive producer, and its star, Jodie Whittaker (pictured, right), will leave the series in 2022\r\n. A trio of specials through next year would herald the pair\u2019s departure from the lo\u2026",
+        "source": "Engadget",
+        "link": "https://www.engadget.com/doctor-who-chibnall-whittaker-departure-reformat-series-113012792.html"
+    }
+]get_best_news
+
+[
+    {
+        "headline": "Amazon handed record $888 million fine from EU data privacy watchdog",
+        "description": "Amazon has been handed its largest ever privacy fine in the EU by Luxembourg's data watchdog. The CNPD fined the company \u20ac746 million ($888 million) on July 16th for violating the bloc's strict data privacy laws, known as GDPR. Amazon disclosed the ruling in \u2026",
+        "source": "Engadget",
+        "link": "https://www.engadget.com/amazon-fine-eu-data-privacy-130443268.html"
+    },
+    {
+        "headline": "This week's best deals: $150 off Apple's MacBook Air M1 and more",
+        "description": "As July comes to a close, a number of laptops, earbuds, games and more have gone on sale across the web. Students planning their back-to-school shopping list have a few ways to save on Apple products \u2014 the latest MacBook Air M1 is $150 off at Amazon (that's b\u2026",
+        "source": "Engadget",
+        "link": "https://www.engadget.com/weekly-tech-deals-apple-macbook-air-m1-ipad-air-nintendo-switch-mario-kart-live-home-circuit-153058942.html"
+    },
+    {
+        "headline": "'Doctor Who' needs to evolve to survive",
+        "description": "The BBC has announced that Chris Chibnall (pictured, center), Doctor Who\u2019s executive producer, and its star, Jodie Whittaker (pictured, right), will leave the series in 2022\r\n. A trio of specials through next year would herald the pair\u2019s departure from the lo\u2026",
+        "source": "Engadget",
+        "link": "https://www.engadget.com/doctor-who-chibnall-whittaker-departure-reformat-series-113012792.html"
+    }
+]get_best_news
+
+[
+    {
+        "headline": "Amazon handed record $888 million fine from EU data privacy watchdog",
+        "description": "Amazon has been handed its largest ever privacy fine in the EU by Luxembourg's data watchdog. The CNPD fined the company \u20ac746 million ($888 million) on July 16th for violating the bloc's strict data privacy laws, known as GDPR. Amazon disclosed the ruling in \u2026",
+        "source": "Engadget",
+        "link": "https://www.engadget.com/amazon-fine-eu-data-privacy-130443268.html"
+    },
+    {
+        "headline": "This week's best deals: $150 off Apple's MacBook Air M1 and more",
+        "description": "As July comes to a close, a number of laptops, earbuds, games and more have gone on sale across the web. Students planning their back-to-school shopping list have a few ways to save on Apple products \u2014 the latest MacBook Air M1 is $150 off at Amazon (that's b\u2026",
+        "source": "Engadget",
+        "link": "https://www.engadget.com/weekly-tech-deals-apple-macbook-air-m1-ipad-air-nintendo-switch-mario-kart-live-home-circuit-153058942.html"
+    },
+    {
+        "headline": "'Doctor Who' needs to evolve to survive",
+        "description": "The BBC has announced that Chris Chibnall (pictured, center), Doctor Who\u2019s executive producer, and its star, Jodie Whittaker (pictured, right), will leave the series in 2022\r\n. A trio of specials through next year would herald the pair\u2019s departure from the lo\u2026",
+        "source": "Engadget",
+        "link": "https://www.engadget.com/doctor-who-chibnall-whittaker-departure-reformat-series-113012792.html"
+    }
+]get_best_news
+
+[
+    {
+        "headline": "Amazon handed record $888 million fine from EU data privacy watchdog",
+        "description": "Amazon has been handed its largest ever privacy fine in the EU by Luxembourg's data watchdog. The CNPD fined the company \u20ac746 million ($888 million) on July 16th for violating the bloc's strict data privacy laws, known as GDPR. Amazon disclosed the ruling in \u2026",
+        "source": "Engadget",
+        "link": "https://www.engadget.com/amazon-fine-eu-data-privacy-130443268.html"
+    },
+    {
+        "headline": "This week's best deals: $150 off Apple's MacBook Air M1 and more",
+        "description": "As July comes to a close, a number of laptops, earbuds, games and more have gone on sale across the web. Students planning their back-to-school shopping list have a few ways to save on Apple products \u2014 the latest MacBook Air M1 is $150 off at Amazon (that's b\u2026",
+        "source": "Engadget",
+        "link": "https://www.engadget.com/weekly-tech-deals-apple-macbook-air-m1-ipad-air-nintendo-switch-mario-kart-live-home-circuit-153058942.html"
+    },
+    {
+        "headline": "'Doctor Who' needs to evolve to survive",
+        "description": "The BBC has announced that Chris Chibnall (pictured, center), Doctor Who\u2019s executive producer, and its star, Jodie Whittaker (pictured, right), will leave the series in 2022\r\n. A trio of specials through next year would herald the pair\u2019s departure from the lo\u2026",
+        "source": "Engadget",
+        "link": "https://www.engadget.com/doctor-who-chibnall-whittaker-departure-reformat-series-113012792.html"
+    }
+]get_best_news
+
+[
+    {
+        "headline": "Amazon handed record $888 million fine from EU data privacy watchdog",
+        "description": "Amazon has been handed its largest ever privacy fine in the EU by Luxembourg's data watchdog. The CNPD fined the company \u20ac746 million ($888 million) on July 16th for violating the bloc's strict data privacy laws, known as GDPR. Amazon disclosed the ruling in \u2026",
+        "source": "Engadget",
+        "link": "https://www.engadget.com/amazon-fine-eu-data-privacy-130443268.html"
+    },
+    {
+        "headline": "This week's best deals: $150 off Apple's MacBook Air M1 and more",
+        "description": "As July comes to a close, a number of laptops, earbuds, games and more have gone on sale across the web. Students planning their back-to-school shopping list have a few ways to save on Apple products \u2014 the latest MacBook Air M1 is $150 off at Amazon (that's b\u2026",
+        "source": "Engadget",
+        "link": "https://www.engadget.com/weekly-tech-deals-apple-macbook-air-m1-ipad-air-nintendo-switch-mario-kart-live-home-circuit-153058942.html"
+    },
+    {
+        "headline": "'Doctor Who' needs to evolve to survive",
+        "description": "The BBC has announced that Chris Chibnall (pictured, center), Doctor Who\u2019s executive producer, and its star, Jodie Whittaker (pictured, right), will leave the series in 2022\r\n. A trio of specials through next year would herald the pair\u2019s departure from the lo\u2026",
+        "source": "Engadget",
+        "link": "https://www.engadget.com/doctor-who-chibnall-whittaker-departure-reformat-series-113012792.html"
+    }
+]get_best_news
+
+[
+    {
+        "headline": "Why Tesla is delaying the Semi EV until 2022",
+        "description": "Following its Q2 earnings call this week, Tesla representatives confirmed previous reports that its commercial EV project, Semi, will be delayed until 2022. The company cites both the ongoing global processor shortage and its own currently-limited battery pro\u2026",
+        "source": "Engadget",
+        "link": "https://www.engadget.com/tesla-delays-the-semi-ev-debut-until-2022-citing-global-chip-shortages-160016735.html"
+    },
+    {
+        "headline": "A Tesla Megapack burst into flames at \u2018Victorian Big Battery\u2019",
+        "description": "A Tesla Megapack caught fire during initial testing of the Victorian Big Battery. The utility-scale battery is a big part of achieving renewable energy goals in Australia.",
+        "source": "The Verge",
+        "link": "https://www.theverge.com/2021/7/30/22602411/neoen-tesla-megapack-fire-victorian-big-battery"
+    }
+]get_best_news
+
+[
+    {
+        "headline": "Amazon handed record $888 million fine from EU data privacy watchdog",
+        "description": "Amazon has been handed its largest ever privacy fine in the EU by Luxembourg's data watchdog. The CNPD fined the company \u20ac746 million ($888 million) on July 16th for violating the bloc's strict data privacy laws, known as GDPR. Amazon disclosed the ruling in \u2026",
+        "source": "Engadget",
+        "link": "https://www.engadget.com/amazon-fine-eu-data-privacy-130443268.html"
+    },
+    {
+        "headline": "This week's best deals: $150 off Apple's MacBook Air M1 and more",
+        "description": "As July comes to a close, a number of laptops, earbuds, games and more have gone on sale across the web. Students planning their back-to-school shopping list have a few ways to save on Apple products \u2014 the latest MacBook Air M1 is $150 off at Amazon (that's b\u2026",
+        "source": "Engadget",
+        "link": "https://www.engadget.com/weekly-tech-deals-apple-macbook-air-m1-ipad-air-nintendo-switch-mario-kart-live-home-circuit-153058942.html"
+    }
+]get_best_news
+
+[
+    {
+        "headline": "Why Tesla is delaying the Semi EV until 2022",
+        "description": "Following its Q2 earnings call this week, Tesla representatives confirmed previous reports that its commercial EV project, Semi, will be delayed until 2022. The company cites both the ongoing global processor shortage and its own currently-limited battery pro\u2026",
+        "source": "Engadget",
+        "link": "https://www.engadget.com/tesla-delays-the-semi-ev-debut-until-2022-citing-global-chip-shortages-160016735.html"
+    },
+    {
+        "headline": "A Tesla Megapack burst into flames at \u2018Victorian Big Battery\u2019",
+        "description": "A Tesla Megapack caught fire during initial testing of the Victorian Big Battery. The utility-scale battery is a big part of achieving renewable energy goals in Australia.",
+        "source": "The Verge",
+        "link": "https://www.theverge.com/2021/7/30/22602411/neoen-tesla-megapack-fire-victorian-big-battery"
+    }
+]get_best_news
+
+[
+    {
+        "headline": "Why Tesla is delaying the Semi EV until 2022",
+        "description": "Following its Q2 earnings call this week, Tesla representatives confirmed previous reports that its commercial EV project, Semi, will be delayed until 2022. The company cites both the ongoing global processor shortage and its own currently-limited battery pro\u2026",
+        "source": "Engadget",
+        "link": "https://www.engadget.com/tesla-delays-the-semi-ev-debut-until-2022-citing-global-chip-shortages-160016735.html"
+    },
+    {
+        "headline": "A Tesla Megapack burst into flames at \u2018Victorian Big Battery\u2019",
+        "description": "A Tesla Megapack caught fire during initial testing of the Victorian Big Battery. The utility-scale battery is a big part of achieving renewable energy goals in Australia.",
+        "source": "The Verge",
+        "link": "https://www.theverge.com/2021/7/30/22602411/neoen-tesla-megapack-fire-victorian-big-battery"
+    }
+]get_best_news
+
+[
+    {
+        "headline": "Amazon handed record $888 million fine from EU data privacy watchdog",
+        "description": "Amazon has been handed its largest ever privacy fine in the EU by Luxembourg's data watchdog. The CNPD fined the company \u20ac746 million ($888 million) on July 16th for violating the bloc's strict data privacy laws, known as GDPR. Amazon disclosed the ruling in \u2026",
+        "source": "Engadget",
+        "link": "https://www.engadget.com/amazon-fine-eu-data-privacy-130443268.html"
+    },
+    {
+        "headline": "This week's best deals: $150 off Apple's MacBook Air M1 and more",
+        "description": "As July comes to a close, a number of laptops, earbuds, games and more have gone on sale across the web. Students planning their back-to-school shopping list have a few ways to save on Apple products \u2014 the latest MacBook Air M1 is $150 off at Amazon (that's b\u2026",
+        "source": "Engadget",
+        "link": "https://www.engadget.com/weekly-tech-deals-apple-macbook-air-m1-ipad-air-nintendo-switch-mario-kart-live-home-circuit-153058942.html"
+    }
+]
