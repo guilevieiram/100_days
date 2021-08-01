@@ -1,0 +1,137 @@
+01/08/2021 - 17:26:05
+
+get_exercise_info
+
+[
+    {
+        "Exercise": "running",
+        "Duration": 50,
+        "Calories": 657.42
+    }
+]
+--------------------------------------
+01/08/2021 - 17:26:32
+
+get_exercise_info
+
+[
+    {
+        "Exercise": "running",
+        "Duration": 30,
+        "Calories": 394.45
+    },
+    {
+        "Exercise": "road cycling",
+        "Duration": 25,
+        "Calories": 335.42
+    }
+]
+--------------------------------------
+01/08/2021 - 17:39:34
+
+get_exercise_info
+
+[
+    {
+        "Exercise": "running",
+        "Duration": 50.03,
+        "Calories": 657.81
+    }
+]
+--------------------------------------
+01/08/2021 - 17:41:01
+
+get_exercise_info
+
+[
+    {
+        "Exercise": "running",
+        "Duration": 50.03,
+        "Calories": 657.81
+    }
+]
+--------------------------------------
+01/08/2021 - 17:42:11
+
+get_exercise_info
+
+[
+    {
+        "Exercise": "running",
+        "Duration": 50.03,
+        "Calories": 657.81
+    }
+]
+--------------------------------------
+01/08/2021 - 17:44:35
+
+get_exercise_info
+
+[
+    {
+        "Exercise": "running",
+        "Duration": 50.03,
+        "Calories": 657.81
+    }
+]
+--------------------------------------
+01/08/2021 - 17:48:53
+
+get_exercise_info
+
+[
+    {
+        "Exercise": "running",
+        "Duration": 50.03,
+        "Calories": 657.81
+    }
+]
+--------------------------------------
+01/08/2021 - 17:51:42
+
+get_exercise_info
+
+[
+    {
+        "Exercise": "running",
+        "Duration": "50.03",
+        "Calories": "657.81"
+    }
+]
+--------------------------------------
+01/08/2021 - 17:52:07
+
+get_exercise_info
+
+[
+    {
+        "Exercise": "running",
+        "Duration": "50.03",
+        "Calories": "657.81"
+    }
+]
+--------------------------------------
+01/08/2021 - 17:52:51
+
+get_exercise_info
+
+[
+    {
+        "exercise": "running",
+        "duration": "50.03",
+        "calories": "657.81"
+    }
+]
+--------------------------------------
+01/08/2021 - 17:56:53
+
+get_exercise_info
+
+[
+    {
+        "exercise": "running",
+        "duration": "50.03",
+        "calories": "657.81"
+    }
+]
+--------------------------------------

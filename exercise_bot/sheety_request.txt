@@ -1,0 +1,99 @@
+01/08/2021 - 17:41:01
+
+make_request
+
+{
+    "errors": [
+        {
+            "detail": "Bad Request. The JSON payload should be inside a root property called 'workout'. Check https://sheety.co/docs for more details."
+        }
+    ]
+}
+--------------------------------------
+01/08/2021 - 17:42:11
+
+make_request
+
+{
+    "errors": [
+        {
+            "detail": "Bad Request. The JSON payload should be inside a root property called 'workout'. Check https://sheety.co/docs for more details."
+        }
+    ]
+}
+--------------------------------------
+01/08/2021 - 17:44:35
+
+make_request
+
+{
+    "errors": [
+        {
+            "detail": "Bad Request. The JSON payload should be inside a root property called 'workout'. Check https://sheety.co/docs for more details."
+        }
+    ]
+}
+--------------------------------------
+01/08/2021 - 17:48:53
+
+make_request
+
+{
+    "errors": [
+        {
+            "detail": "Bad Request. The JSON payload should be inside a root property called 'workout'. Check https://sheety.co/docs for more details."
+        }
+    ]
+}
+--------------------------------------
+01/08/2021 - 17:51:42
+
+make_request
+
+{
+    "errors": [
+        {
+            "detail": "Bad Request. The JSON payload should be inside a root property called 'workout'. Check https://sheety.co/docs for more details."
+        }
+    ]
+}
+--------------------------------------
+01/08/2021 - 17:52:07
+
+make_request
+
+{
+    "errors": [
+        {
+            "detail": "Bad Request. The JSON payload should be inside a root property called 'workout'. Check https://sheety.co/docs for more details."
+        }
+    ]
+}
+--------------------------------------
+01/08/2021 - 17:52:51
+
+make_request
+
+{
+    "errors": [
+        {
+            "detail": "Bad Request. The JSON payload should be inside a root property called 'workout'. Check https://sheety.co/docs for more details."
+        }
+    ]
+}
+--------------------------------------
+01/08/2021 - 17:56:55
+
+make_request
+
+{
+    "workout": {
+        "date": "01/08/2021",
+        "time": "17:56:53",
+        "exercise": "running",
+        "duration": "50.03",
+        "calories": "657.81",
+        "id": 3
+    }
+}
+--------------------------------------
