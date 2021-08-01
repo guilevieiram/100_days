@@ -38,6 +38,7 @@ def main() -> None:
 		stocks=AVStocks(),
 		news=ApiNews(),
 		messager=FileMessager()
+		
 		).run()
 
 if __name__ == "__main__":

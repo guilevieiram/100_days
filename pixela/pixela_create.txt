@@ -1,0 +1,3 @@
+2021-08-01 10:04:13.980641create_user
+
+"{\"message\":\"This user already exist.\",\"isSuccess\":false}"
