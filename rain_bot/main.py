@@ -2,6 +2,7 @@ import requests
 import json
 import os
 from twilio.rest import Client
+from twilio.http.http_client import TwilioHttpClient
 from abc import ABC, abstractmethod
 
 # Defining decorator
@@ -106,7 +107,8 @@ class TwilioMessager(Messager):
 		self.sid = "ACb62737daa2ca8914b38d013ac3946891"
 		self.token = os.environ.get("TWILIO_TOKEN")
 		self.number = "+13868663463"
-		self.client = Client(self.sid, self.token)
+		self.proxy_client = TwilioHttpClient(proxy={'http': os.environ['http_proxy'], 'https': os.environ['https_proxy']})
+		self.client = Client(self.sid, self.token, http_client=self.proxy_client)
 
 	@log("message")
 	def send_message(self, telephone: str, message: str) -> None:
@@ -149,9 +151,15 @@ class RainBot:
 def main() -> None:
 
 	RainBot(
+			telephone = "+447860667605",
+			latitude=51.521629,
+			longitude=-0.153560
+		).run()
+
+	RainBot(
 			telephone = "+5531998524668",
-			latitude=51.507351,
-			longitude=-0.127758
+			latitude=-19.930099,
+			longitude=-43.948250
 		).run()
 
 if __name__ == "__main__":
