@@ -628,3 +628,206 @@ Only 25 euros!!!!!
 -------------------------------------------------------------------
 
 ------------------------------
+03/08/2021 - 14:44:52
+
+send_message
+
+
+-------------------------------------------------------------------
+Message to 
+Subject: Cheap Flight Alert!!!
+
+
+Flight found from None- to None- leaving on 03/08/21 and returning on 03/08/21
+Only 12313 euros!!!!!
+
+Flight found from None- to None- leaving on 03/08/21 and returning on 03/08/21
+Only 0.3 euros!!!!!
+
+-------------------------------------------------------------------
+
+------------------------------
+03/08/2021 - 14:44:52
+
+send_message
+
+
+-------------------------------------------------------------------
+Message to 
+Subject: Cheap Flight Alert!!!
+
+
+Flight found from None- to None- leaving on 03/08/21 and returning on 03/08/21
+Only 12313 euros!!!!!
+
+Flight found from None- to None- leaving on 03/08/21 and returning on 03/08/21
+Only 0.3 euros!!!!!
+
+-------------------------------------------------------------------
+
+------------------------------
+03/08/2021 - 15:39:37
+
+send_message
+
+
+-------------------------------------------------------------------
+Message to u@1
+Subject: Cheap Flight Alert!!!
+
+
+Flight found from None- to None- leaving on 03/08/21 and returning on 03/08/21
+Only 12313 euros!!!!!
+
+Flight found from None- to None- leaving on 03/08/21 and returning on 03/08/21
+Only 0.3 euros!!!!!
+
+-------------------------------------------------------------------
+
+------------------------------
+03/08/2021 - 15:39:37
+
+send_message
+
+
+-------------------------------------------------------------------
+Message to guilhermevmanhaes@gmail.com
+Subject: Cheap Flight Alert!!!
+
+
+Flight found from None- to None- leaving on 03/08/21 and returning on 03/08/21
+Only 12313 euros!!!!!
+
+Flight found from None- to None- leaving on 03/08/21 and returning on 03/08/21
+Only 0.3 euros!!!!!
+
+-------------------------------------------------------------------
+
+------------------------------
+03/08/2021 - 15:39:37
+
+send_message
+
+
+-------------------------------------------------------------------
+Message to joao@gmail.com
+Subject: Cheap Flight Alert!!!
+
+
+Flight found from None- to None- leaving on 03/08/21 and returning on 03/08/21
+Only 12313 euros!!!!!
+
+Flight found from None- to None- leaving on 03/08/21 and returning on 03/08/21
+Only 0.3 euros!!!!!
+
+-------------------------------------------------------------------
+
+------------------------------
+03/08/2021 - 16:10:49
+
+send_message
+
+
+-------------------------------------------------------------------
+Message to u@1
+Subject: Cheap Flight Alert!!!
+
+
+Flight found from none-XXX to none-XXX leaving on 01/01/00 and returning on 01/01/00
+Only 0 euros!!!!!
+
+-------------------------------------------------------------------
+
+------------------------------
+03/08/2021 - 16:12:13
+
+send_message
+
+
+-------------------------------------------------------------------
+Message to guilhermevmanhaes@gmail.com
+Subject: Cheap Flight Alert!!!
+
+
+Flight found from none-XXX to none-XXX leaving on 01/01/00 and returning on 01/01/00
+Only 0 euros!!!!!
+
+-------------------------------------------------------------------
+
+------------------------------
+03/08/2021 - 16:29:49
+
+send_message
+
+
+-------------------------------------------------------------------
+Message to guilhermevmanhaes@gmail.com
+Subject: Cheap Flight Alert!!!
+
+
+Flight found from Belo Horizonte-CNF to Berlin-BER leaving on 10/10/21 and returning on 29/10/21
+Only 474 euros!!!!!
+
+-------------------------------------------------------------------
+
+------------------------------
+03/08/2021 - 16:51:36
+
+send_message
+
+
+-------------------------------------------------------------------
+Message to joao@gmail.com
+Subject: Cheap Flight Alert!!!
+
+
+Flight found from Belo Horizonte-CNF to Berlin-BER leaving on 10/10/21 and returning on 29/10/21
+Only 474 euros!!!!!
+
+-------------------------------------------------------------------
+
+------------------------------
+03/08/2021 - 16:54:28
+
+send_message
+
+
+-------------------------------------------------------------------
+Message to guilhermevmanhaes@gmail.com
+Subject: Cheap Flight Alert!!!
+
+
+Flight found from Belo Horizonte-CNF to Berlin-BER leaving on 10/10/21 and returning on 29/10/21
+Only 474 euros!!!!!
+
+Flight found from Belo Horizonte-CNF to London-LHR leaving on 11/10/21 and returning on 19/10/21
+Only 533 euros!!!!!
+
+-------------------------------------------------------------------
+
+------------------------------
+03/08/2021 - 16:54:55
+
+send_message
+
+
+-------------------------------------------------------------------
+Message to bruna.patrus@gmail.com
+Subject: Cheap Flight Alert!!!
+
+
+Flight found from London-STN to Berlin-BER leaving on 17/09/21 and returning on 22/09/21
+Only 25 euros!!!!!
+
+Flight found from London-LHR to Bordeaux-BOD leaving on 18/09/21 and returning on 25/09/21
+Only 83 euros!!!!!
+
+Flight found from London-LTN to Okinawa Island-OKA leaving on 31/10/21 and returning on 09/11/21
+Only 788 euros!!!!!
+
+Flight found from London-LHR to Tokyo-HND leaving on 30/01/22 and returning on 04/02/22
+Only 818 euros!!!!!
+
+-------------------------------------------------------------------
+
+------------------------------

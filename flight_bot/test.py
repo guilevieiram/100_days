@@ -1,7 +1,16 @@
+from src.view.ui import TerminalUserInteface
+from src.model.user_model import User
+
+
 if __name__ == "__main__":
-	pass
 
+	t = TerminalUserInteface()
 
+	res = t.accquire_user(["phone", "name"])
+	print(res)
+
+	u = User(phone="1234546789", first_name="gui")
+	print(u.__dict__)
 
 '''
 export WEATHER_API_KEY=235ca50b277238427b332ff96edc15d1;

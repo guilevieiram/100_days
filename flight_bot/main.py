@@ -1,51 +1,66 @@
+"""
+TODO:
+
+- refactor CMV architecture ok
+- refactor table management to acquire users ok
+- build ui for getting users ok
+
+- extend data structure to handle multiple cities
+-COMMENT THE CODE FOR GODS SAKE
+
+"""
+
+"""
+BUGS:
+- phone getting saved as float not string
+- same good flight not going to all users
+"""
+
+
 from src.decorators import log
-from src.db import DataBase, Sheety, PandasDB
-from src.model import Model, PlaneModel
-from src.view import Messager, TerminalMessager, EmailMessager
-from src.controller import Controller, PlaneBotController
+from src.model import db, flight_model, user_model
+from src.view import messager, ui
+from src.controller import controller
 
-def main() -> None:
+def main(
+	user_interface: ui.UserInterface,
+	messager: messager.Messager,
 
-	data_base: DataBase = PandasDB
-	messager: Messager = EmailMessager
-	model: Model = PlaneModel
-	controller: Controller = PlaneBotController
+	controller: controller.Controller,
 
-	controller(
+	flight_model: flight_model.FlightModel,
+	user_model: user_model.UserModel,
+	data_base: db.DataBase
+	) -> None:
 
-		from_city="Paris",
-		message_destination="guilhermevmanhaes@gmail.com",
-
+	bot = controller(
+		user_interface=user_interface(),
 		messager=messager(),
-
-		model=model(
+		flight_model=flight_model(
 			data_base=data_base(
-					project = "flightBot",
-					table = "flights"
-				),
-			minimum_stay=7,
-			months_window=3,
-			)
-
-		).get_cheapest()
-
-	controller(
-
-		from_city="London",
-		message_destination="bruna.patrus@gmail.com",
-
-		messager=messager(),
-
-		model=model(
+				table="flights"
+				)
+			),
+		user_model=user_model(
 			data_base=data_base(
-					project = "flightBot",
-					table = "buFlights"
-				),
-			minimum_stay=7,
-			months_window=3,
-			)
+				table="users"
+				)
+			),
+		)
 
-		).get_cheapest()
+	bot.load_ui()
+
+	bot.get_user()
+	bot.send_cheapest_flights()
+
+
 
 if __name__ == "__main__":
-	main()
+	main(
+		controller=controller.FlightBotController,
+		user_interface=ui.TerminalUserInteface,
+		messager=messager.TerminalMessager,
+		flight_model=flight_model.TequilaFlightModel,
+		user_model=user_model.TerminalUserModel,
+		data_base=db.CSVDB
+		)
