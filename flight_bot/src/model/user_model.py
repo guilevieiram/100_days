@@ -22,6 +22,10 @@ class User:
 		self.__dict__.update(**data)
 		return self
 
+	def print(self):
+		"""Method for printing user info in a user-friendly way"""
+		return "\n".join([f"{key}: {value}" for key, value in self.__dict__.items()])
+
 
 class UserModel(ABC):
 	"""
@@ -78,32 +82,27 @@ class TerminalUserModel(UserModel):
 	def add_user(self, user: User) -> None:
 		all_emails = [u.e_mail for u in self.get_all_users()]
 		if not user.e_mail in all_emails:
-			self.data_base.add_data(data=[user.__dict__])
-			print(f"added user: {user}")
+			self.data_base.add_data(table="users", data=[user.__dict__])
 		else:
-			print("user already exists")
+			print("User already exists.")
 
 	def delete_user(self, user: User) -> None:
-		user_id: int = self.data_base.get_data(key_value={"e_mail": user.e_mail})[0]["id"]
-		self.data_base.delete_data(key=user_id)
-		print(f"deleted user: {user}")
+		user_id: int = self.data_base.get_data(table="users", key_value={"e_mail": user.e_mail})[0]["id"]
+		self.data_base.delete_data(table="users", key=user_id)
 
 	def find_user(self, attribute: dict[str, Any]) -> User:
-		user_list = self.data_base.get_data(key_value=attribute)
+		user_list = self.data_base.get_data(table="users", key_value=attribute)
 		if not user_list:
-			raise KeyError("User not found on the data base")
-		print(f"trying to find a user such that {attribute}")
+			raise KeyError("User not found on the data base.")
 		return self.convert_attributes_user(attributes=user_list[0])
 
 	def get_all_users(self) -> list[User]:
-		print("getting all users")
 		return [self.convert_attributes_user(attributes=attributes)
-				for attributes in self.data_base.get_data()]
+				for attributes in self.data_base.get_data(table="users")]
 
 	def edit_user(self, user: User, attribute: dict[str, Any]) -> None:
-		user_id: int = self.data_base.get_data(key_value={"e_mail": user.e_mail})[0]["id"]
-		self.data_base.update_data(key=user_id, key_values=[attribute])
-		print(f"edited user {user} to have {attribute}")
+		user_id: int = self.data_base.get_data(table="users", key_value={"e_mail": user.e_mail})[0]["id"]
+		self.data_base.update_data(table="users", key=user_id, key_values=[attribute])
 
 	@staticmethod
 	def convert_attributes_user(attributes: dict[str, Any]) -> User:

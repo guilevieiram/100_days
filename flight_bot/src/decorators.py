@@ -28,3 +28,14 @@ def log(name: str):
 			return result		
 		return wrapper
 	return logger
+
+def terminal_action(message: str, sleep_time: int = 1):
+	def logger(function):
+		def wrapper(*args, **kwargs):
+			print(message)
+			result = function(*args, **kwargs)
+			print(result)
+			time.sleep(sleep_time)
+			return result		
+		return wrapper
+	return logger

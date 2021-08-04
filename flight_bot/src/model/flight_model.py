@@ -30,6 +30,8 @@ class Flight:
 	from_airport: str = ""
 	to_airport: str = ""
 
+	stops: Optional[list] = None 
+
 	_id: Optional[int] = None
 
 
@@ -41,7 +43,6 @@ class FlightComparisson:
 
 	def is_found_better(self) -> bool:
 		return self.found.price < self.initial.price
-
 
 
 # Abstract model
@@ -67,7 +68,18 @@ class FlightModel(ABC):
 		"""
 		pass
 
+	@abstractmethod
+	def update_flight_prices(self, from_city: str) -> None:
+		"""
+		Given a city of departure: from_city (e.g. Paris) 
+		Must get a list of flights leaving that city.
+		If the found flight price is lower than the one found in the data base,
+		it must update the database		
+		"""
+		pass
 
+
+# Model implementation
 class DummyFlightModel(FlightModel):
 	"""Dummy implementation on the flight model for debuging other parts of the program."""
 
@@ -78,8 +90,10 @@ class DummyFlightModel(FlightModel):
 		print("checking for cheap prices")
 		return [Flight(_id=1, price=12313), Flight(_id=2, price=0.3)]
 
+	def update_flight_prices(self, from_city: str) -> None:
+		print("Data base updated with better prices")
 
-# Model implementation
+
 class TequilaFlightModel(FlightModel):
 	"""
 	Flight model implemented using the Kiwi Tequila Flights API. 
@@ -99,8 +113,7 @@ class TequilaFlightModel(FlightModel):
 	def check_cheap_prices(self, from_city: str) -> list[Flight]:
 		"""
 		Compares all the found flights with the stored flight destinations using the FlightComparisson class.
-		If the found flight is better, it updates the database with a new flight value and
-		appends that flight to a list that is then returned.
+		If the found flight is better, it appends that new flight to a list that is then returned.
 		"""
 		
 		comparissons = [FlightComparisson(initial=destination, found=self.get_cheapest_flight(destination))
@@ -109,11 +122,23 @@ class TequilaFlightModel(FlightModel):
 		flights_data: list[Flight] = []
 		for comparisson in comparissons:
 			if comparisson.is_found_better():
-				self.update_data(destination=comparisson.initial, new_price=comparisson.found.price)
 				flights_data.append(comparisson.found)
 
 		return flights_data
 
+	def update_flight_prices(self, from_city: str) -> None:
+		"""
+		Compares all the found flights with the stored flight destinations using the FlightComparisson class.
+		If the found flight is better, it updates the database with a new flight value 
+		"""
+		
+		comparissons = [FlightComparisson(initial=destination, found=self.get_cheapest_flight(destination))
+			for destination in self.get_wanted_destinations(from_city=from_city)]
+
+		for comparisson in comparissons:
+			if comparisson.is_found_better():
+				self.update_data(destination=comparisson.initial, new_price=comparisson.found.price)
+				
 	def get_cheapest_flight(self, destination: Flight) -> Flight:
 		"""
 		Uses the search engine to find flights given a destination. 
@@ -137,26 +162,43 @@ class TequilaFlightModel(FlightModel):
 				to_code=data["cityCodeTo"],
 				from_airport=data["flyFrom"],
 				to_airport=data["flyTo"],
-				stops=
+				stops=[route["flyFrom"] for route in self.flight_search_engine.get_routes(routes=data["route"])]
 				)
 		else:
 			return Flight(price=100_000)
 
-
 	def update_data(self, destination: Flight, new_price: float) -> None:
-		"""Updates the destination data in the database with a new price.
-		This new price is given by the mean between the previous and the new lowest price.
 		"""
-		self.data_base.update_data(
-			key=destination._id,
-			key_values=[{
-				"price": (new_price + destination.price)/2
-			}]
-			)
+		Updates the destination data in the database with a new price.
+		This new price is given by new lowest price.
+		"""
+		table_name: str = self.table_name(city_name=destination.from_city)
+		try:
+			self.data_base.update_data(
+				table=table_name,
+				key=destination._id,
+				key_values=[{
+					"price": new_price
+				}]
+				)
+		except KeyError:
+			self.data_base.create_table_from_template(new_table_name=table_name, parent_table_name="flights")
+			self.data_base.update_data(
+				table=table_name,
+				key=destination._id,
+				key_values=[{
+					"price": new_price
+				}]
+				)
 
 	def get_wanted_destinations(self, from_city: str) -> list[Flight]:
 		"""Gets the list of wanted destinations from the database encoded in flight type objects"""
-		data: list[dict] = self.data_base.get_data()
+		table_name: str = self.table_name(city_name=from_city)
+		try:
+			data: list[dict] = self.data_base.get_data(table=table_name)
+		except KeyError:
+			self.data_base.create_table_from_template(new_table_name=table_name, parent_table_name="flights")
+			data: list[dict] = self.data_base.get_data(table=table_name)
 		return [
 			Flight(
 				_id=point["id"],
@@ -168,6 +210,9 @@ class TequilaFlightModel(FlightModel):
 				) for point in data
 		] 
 
+	@staticmethod
+	def table_name(city_name: str) -> str:
+		return city_name.replace(" ", "").lower()
 
 # Helper Classes
 class TequilaFlightApi:
@@ -203,7 +248,7 @@ class TequilaFlightApi:
 				)
 			return response.json()["data"][0]
 		except Exception as e:
-			print(e)
+			print("Error while searching flights:",e)
 
 	@log("getting_IATA_codes")
 	def get_IATA_code(self, city_name: str) -> str:
@@ -220,8 +265,9 @@ class TequilaFlightApi:
 				)
 			return response.json()["locations"][0]["code"]
 		except Exception as e:
-			print(e)
+			print("Error while getting IATA code:", e)
 			return "XXX"
+
 
 	@staticmethod
 	def get_dates(months: int) -> tuple[str]:
@@ -241,4 +287,12 @@ class TequilaFlightApi:
 		It can add a certain time delta in days.
 		"""
 		return datetime.datetime.strptime(date, "%Y-%m-%dT%H:%M:%S.000Z") + datetime.timedelta(days=day_delta)
+
+	@staticmethod	
+	def get_routes(routes: list[dict]) -> list[dict]:
+		"""Get the list of routes on the from-to trip. Excluding the first flight."""
+		first_hand_routes = routes[0 : len(routes)//2]
+		first_hand_routes = first_hand_routes[1:] # Slicing of the first departure
+		return first_hand_routes
+
 

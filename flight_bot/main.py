@@ -1,13 +1,7 @@
 """
 TODO:
 
-- refactor CMV architecture ok
-- refactor table management to acquire users ok
-- build ui for getting users ok
-
 - extend data structure to handle multiple cities
--COMMENT THE CODE FOR GODS SAKE
-
 """
 
 """
@@ -38,21 +32,17 @@ def main(
 		messager=messager(),
 		flight_model=flight_model(
 			data_base=data_base(
-				table="flights"
+				db_name="flight_data"
 				)
 			),
 		user_model=user_model(
 			data_base=data_base(
-				table="users"
+				db_name="user_data"
 				)
 			),
 		)
 
 	bot.load_ui()
-
-	bot.get_user()
-	bot.send_cheapest_flights()
-
 
 
 if __name__ == "__main__":

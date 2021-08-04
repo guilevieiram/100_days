@@ -1,5 +1,6 @@
 import requests
 import pandas as pd
+import os
 
 from abc import ABC, abstractmethod
 from dataclasses import dataclass, asdict
@@ -12,23 +13,33 @@ class DataBase(ABC):
 	"""Abstract class for a database with a single table and simple queries."""
 
 	@abstractmethod
-	def __init__(self, table: str) -> None:
-		"""Initializes the table with the given table name."""
+	def __init__(self, db_name: str) -> None:
+		"""Initializes the data base with the given db name."""
 		pass
 
 	@abstractmethod
-	def add_data(self, data: list[dict]) -> None:
+	def load_table(self, table_name: str) -> None:
+		"""Loads a table to be used on the data base"""
+		pass
+
+	@abstractmethod
+	def create_table_from_template(self, new_table_name: str, parent_table_name: str) -> None:
+		"""creates a new table on the data base, by copying an existing table"""
+		pass
+
+	@abstractmethod
+	def add_data(self, table: str, data: list[dict]) -> None:
 		"""
-		Adds several rows of data in the table
+		Adds several rows of data in a given table
 		The data is given in the form of a list of dictionaies.
 		Each dictionary shoul have all the columns as keys with the desired values as values.
 		"""
 		pass
 
 	@abstractmethod
-	def get_data(self, key_value: Optional[dict[str, Any]] = None) -> list[dict]:
+	def get_data(self, table: str, key_value: Optional[dict[str, Any]] = None) -> list[dict]:
 		"""
-		Retrieves a list of data points as a list of dictionaries.
+		Retrieves a list of data points as a list of dictionaries from a given table.
 		Each dictionary has the table column names as keys.
 		key_value is an optional value containing one attribute for the wanted data (as a filter).
 		If no key_value is passed, all the data is retrieved.
@@ -36,14 +47,14 @@ class DataBase(ABC):
 		pass
 
 	@abstractmethod
-	def delete_data(self, key: int) -> None:
-		"""Deletes a row of data given a key/id for that instance."""
+	def delete_data(self, table: str, key: int) -> None:
+		"""Deletes a row of data in a given table given a key/id for that instance."""
 		pass
 
 	@abstractmethod
-	def update_data(self, key: int, key_values: list[dict[str, Any]]) -> None:
+	def update_data(self, table: str, key: int, key_values: list[dict[str, Any]]) -> None:
 		"""
-		Updates a row of data given a key/id and a key_values:
+		Updates a row of data in a given table given a key/id and a key_values:
 			a list o key_value pairs containing the desired attributes to be changed
 		"""
 		pass
@@ -56,40 +67,57 @@ class CSVDB(DataBase):
 	More information on the parent class.
 	"""
 
-	def __init__(self, table: str) -> None:
-		self.path: str = f"data/{table}.csv"
-		self.data: pd.DataFrame = pd.read_csv(self.path)
-		self.data.columns = self.data.columns.map(lambda x: x.lower())
-		self.columns: list[str] = list(self.data.columns)
+	def __init__(self, db_name: str) -> None:
+		self.path: str = f"data/{db_name}/"
+		self.data: dict[str, pd.DataFrame] = {}
+		self.columns: dict[str, list[str]] = {}
 
-	def add_data(self, data: list[dict]) -> None:
+		self.load_all_tables()
+
+	def load_table(self, table_name: str) -> None:
+		self.data[table_name]: pd.DataFrame = pd.read_csv(f"{self.path}{table_name}.csv")
+		self.data[table_name].columns = self.data[table_name].columns.map(lambda x: x.lower())
+		self.columns[table_name]: list[str] = list(self.data[table_name].columns)
+
+	def create_table_from_template(self, new_table_name: str, parent_table_name: str) -> None:
+		self.data[new_table_name] = self.data[parent_table_name]
+		self.update_table(table_name=new_table_name)
+
+	def add_data(self, table: str, data: list[dict]) -> None:
 		to_add_df: pd.DataFrame = pd.DataFrame(data)
-		self.data = self.data.append(to_add_df, ignore_index=True)
-		self.update_table()
+		self.data[table] = self.data[table].append(to_add_df, ignore_index=True)
+		self.update_table(table_name=table)
 
-	def get_data(self, key_value: Optional[dict[str, Any]] = None) -> list[dict]:
-		self.data["id"] = self.data.index
+	def get_data(self, table: str, key_value: Optional[dict[str, Any]] = None) -> list[dict]:
+		self.data[table]["id"] = self.data[table].index
 		if not key_value:
-			response = self.data.to_dict("records")
+			response = self.data[table].to_dict("records")
 		else:
 			key, value = list(key_value.items())[0]
-			response = self.data[self.data[key]==value].to_dict("records")
-		self.data = self.data.drop(columns=["id"])
-		self.update_table()
+			response = self.data[table][self.data[table][key]==value].to_dict("records")
+		self.data[table] = self.data[table].drop(columns=["id"])
+		self.update_table(table_name=table)
 		return response
 
-	def delete_data(self, key: int) -> None:
-		self.data = self.data.drop(key, axis=0)
-		self.update_table()
+	def delete_data(self, table: str, key: int) -> None:
+		self.data[table] = self.data[table].drop(key, axis=0)
+		self.update_table(table_name=table)
 
-	def update_data(self, key_values: list[dict[str, Any]], key: int) -> None:
+	def update_data(self, table: str, key_values: list[dict[str, Any]], key: int) -> None:
 		for key_value in key_values:
 			column, value = list(key_value.items())[0]
-			self.data.at[key, column] = value 
-		self.update_table()
+			self.data[table].at[key, column] = value 
+		self.update_table(table_name=table)
 
-	def update_table(self) -> None:
-		self.data.to_csv(self.path, index=False)
+	def update_table(self, table_name: str) -> None:
+		"""Updated the table, exporting the data frame to a csv file."""
+		self.data[table_name].to_csv(f"{self.path}{table_name}.csv", index=False)
+
+	def load_all_tables(self) -> None:
+		table_names = os.listdir(self.path)
+		for name in table_names:
+			self.load_table(table_name=name.replace(".csv", ""))
+
 
 # Needs updating
 class Sheety(DataBase):

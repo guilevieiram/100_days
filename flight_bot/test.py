@@ -1,14 +1,11 @@
-from src.view.ui import TerminalUserInteface
-from src.model.user_model import User
-
+from src.model.db import CSVDB
 
 if __name__ == "__main__":
 
-	t = TerminalUserInteface()
+	db = CSVDB(db_name="data")
 
-	res = t.accquire_user(["phone", "name"])
-	print(res)
+	data = {"city": "Berlin", "price": 1000}
 
-	u = User(phone="1234546789", first_name="gui")
-	print(u.__dict__)
+	db.create_table_from_template("london", "flights_test")
 
+	db.add_data("saopaulo", data = [data])
