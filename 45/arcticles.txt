@@ -1,0 +1,57 @@
+(492) The Viking obsession with werewolves  |  https://www.atlasobscura.com/articles/hidden-history-viking-wolf-warrior-werewolf 
+
+(417) Schoellkopf Power Station Disaster – a history  |  https://www.niagarafrontier.com/schoellkopf.html 
+
+(349) How will MIDI 2.0 change music? (2020)  |  https://qz.com/1788828/how-will-midi-2-0-change-music/ 
+
+(255) Lumina Desktop Environment  |  https://lumina-desktop.org/ 
+
+(230) Fundamentals of Piano Practice  |  https://fundamentals-of-piano-practice.readthedocs.io/ 
+
+(165) Substantially more monarch butterflies have arrived in California to overwinter  |  https://www.goodnewsnetwork.org/far-more-monarch-butterflies-in-ca-this-year/ 
+
+(160) I converted my microwave into a laser oven [video]  |  https://www.youtube.com/watch?v=fM9hYzJnao0 
+
+(154) Taking apart the 2010 Fisher Price re-released Music Box Record Player  |  https://twitter.com/Foone/status/1454230585933631488 
+
+(144) Pre-industrial workers had a shorter workweek than today's (1991)  |  https://groups.csail.mit.edu/mac/users/rauch/worktime/hours_workweek.html 
+
+(136) How long does it take ordinary people to “get good” at chess?  |  https://github.com/jcw024/lichess_database_ETL/blob/main/README.md 
+
+(117) Explaining Ruby Fibers  |  https://noteflakes.com/articles/2021-10-20-explaining-ruby-fibers 
+
+(105) Raspberry Pi 4 achieves Vulkan 1.1 conformance, gets GPU performance boost  |  https://www.cnx-software.com/2021/10/27/raspberry-pi-4-achieves-vulkan-1-1-conformance-gets-up-to-60-gpu-performance-boost/ 
+
+(61) Pianoplayer: Automatic fingering generator for piano scores  |  https://github.com/marcomusy/pianoplayer 
+
+(59) Ask HN: If the Internet were redesigned today, what changes would you make?  |  item?id=29053266 
+
+(58) Awesome Userscripts  |  https://project-awesome.org/brunocvcunha/awesome-userscripts 
+
+(53) Chan Zuckerberg Initiative sunsetting science research platform meta.org  |  https://cziscience.medium.com/meta-transition-5f66b1fae475 
+
+(51) How I motivate myself to write  |  https://blog.pragmaticengineer.com/writing-motivation/ 
+
+(48) Six Truths About Video Game Stories  |  https://bottomfeeder.substack.com/p/six-truths-about-video-game-stories 
+
+(45) The AWARE Development Plan  |  https://shopify.engineering/aware-development-plan 
+
+(41) Ithkuil IV Language FAQ  |  https://ithkuil.place/faq 
+
+(33) The Value of Nothing: Capital versus Growth  |  https://americanaffairsjournal.org/2021/08/the-value-of-nothing-capital-versus-growth/ 
+
+(28) Get Started Making Music  |  https://learningmusic.ableton.com/ 
+
+(26) Show HN: SectorLISP now fits in one sector  |  https://justine.lol/sectorlisp/ 
+
+(26) Dangerous Logging in Swift  |  https://indiestack.com/2021/10/dangerous-logging-in-swift/ 
+
+(23) SigNoz (YC W21) Is Hiring Golang Engineers  |  https://www.ycombinator.com/companies/signoz/jobs/uCt5BQw-founding-sr-backend-engineer 
+
+(20) Diamagnetic Levitation (1997)  |  https://www.ru.nl/hfml/research/levitation/diamagnetic-levitation/ 
+
+(15) Show HN: Running a simple local HTTP server in a web page  |  https://github.com/EtherDream/http-server-online 
+
+(14) OpenSimWorld, Directory of the OpenSimulator Metaverse  |  https://opensimworld.com/dir 
+
+(12) colorForth (2009)  |  https://colorforth.github.io/cf.htm 

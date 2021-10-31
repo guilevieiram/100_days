@@ -244,3 +244,21 @@ check_cheap_prices
 
 [Flight(price=481, departure_date=datetime.datetime(2021, 10, 11, 22, 45), return_date=datetime.datetime(2021, 10, 17, 22, 45), from_city='Belo Horizonte', to_city='Berlin', from_code='BHZ', to_code='BER', from_airport='CNF', to_airport='BER', stops=['GRU', 'MAD'], _id=None)]
 ------------------------------
+04/08/2021 - 21:55:44
+
+check_cheap_prices
+
+[]
+------------------------------
+04/08/2021 - 21:56:18
+
+check_cheap_prices
+
+[]
+------------------------------
+04/08/2021 - 21:56:53
+
+check_cheap_prices
+
+[]
+------------------------------
